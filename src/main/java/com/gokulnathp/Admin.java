@@ -96,16 +96,15 @@ public class Admin {
         taxi.startJourney(to, dropTime, amount);
         String taxiName = taxi.getName();
 
-        Booking booking = new Booking(
-                bookingId,
-                customerId,
-                from,
-                to,
-                pickupTime,
-                dropTime,
-                amount,
-                taxiName
-        );
+        Booking booking = new BookingBuilder()
+                .setBookingId(bookingId)
+                .setCustomerId(customerId)
+                .setFrom(from)
+                .setDropTime(dropTime)
+                .setAmount(amount)
+                .setPickupTime(pickupTime)
+                .setTaxiName(taxiName)
+                .getBooking();
         history.add(booking);
 
         return booking;
