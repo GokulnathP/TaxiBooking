@@ -3,14 +3,14 @@ package com.gokulnathp;
 import java.util.Objects;
 
 public class Booking {
-    public final String bookingId;
-    public final String customerId;
-    public final String from;
-    public final String to;
-    public final String pickupTime;
-    public final String dropTime;
-    public final int amount;
-    public final String taxiName;
+    private final String bookingId;
+    private final String customerId;
+    private final String from;
+    private final String to;
+    private final String pickupTime;
+    private final String dropTime;
+    private final int amount;
+    private final String taxiName;
 
     public Booking(
             String bookingId,
@@ -30,6 +30,38 @@ public class Booking {
         this.dropTime = dropTime;
         this.amount = amount;
         this.taxiName = taxiName;
+    }
+
+    public String getBookingId() {
+        return bookingId;
+    }
+
+    public String getCustomerId() {
+        return customerId;
+    }
+
+    public String getFrom() {
+        return from;
+    }
+
+    public String getTo() {
+        return to;
+    }
+
+    public String getPickupTime() {
+        return pickupTime;
+    }
+
+    public String getDropTime() {
+        return dropTime;
+    }
+
+    public int getAmount() {
+        return amount;
+    }
+
+    public String getTaxiName() {
+        return taxiName;
     }
 
     @Override
