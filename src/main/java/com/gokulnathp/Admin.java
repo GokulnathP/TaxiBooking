@@ -4,10 +4,15 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Admin {
-    public List<Taxi> taxis = new ArrayList<>();
-    public List<Booking> history = new ArrayList<>();
+    private final List<Taxi> taxis;
+    private final List<Booking> history;
 
-    public void newTaxi(String taxiName) {
+    public Admin() {
+        taxis = new ArrayList<>();
+        history = new ArrayList<>();
+    }
+
+    public void addTaxi(String taxiName) {
         Taxi taxi = new Taxi(taxiName);
         taxis.add(taxi);
     }
@@ -83,7 +88,7 @@ public class Admin {
         return availableTaxi;
     }
 
-    public void bookTaxi(String from, String to, String pickupTime) {
+    public Booking bookTaxi(String from, String to, String pickupTime) {
         String bookingId = (history.size() + 1) + "";
         String customerId = (history.size() + 1) + "";
 
@@ -107,22 +112,16 @@ public class Admin {
         );
         history.add(booking);
 
-        System.out.println("Booking ID: " + bookingId);
-        System.out.println("Allotted Taxi: " + taxiName);
+        return booking;
     }
 
-    public void historyOf(String taxiName) {
+    public List<Booking> historyOf(String taxiName) {
+        List<Booking> historyOfTaxi = new ArrayList<>();
         history.forEach(booking -> {
             if (booking.taxiName.equals(taxiName)) {
-                System.out.println(
-                        booking.customerId + " " +
-                                booking.from + " " +
-                                booking.to + " " +
-                                booking.pickupTime + " " +
-                                booking.dropTime + " " +
-                                booking.amount
-                );
+                historyOfTaxi.add(booking);
             }
         });
+        return historyOfTaxi;
     }
 }
