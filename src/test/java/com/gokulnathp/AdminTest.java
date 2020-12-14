@@ -15,11 +15,7 @@ public class AdminTest {
     @Before
     public void loadTaxi() {
         admin = new Admin();
-        admin.addTaxi("Taxi 1");
-        admin.addTaxi("Taxi 2");
-        admin.addTaxi("Taxi 3");
-        admin.addTaxi("Taxi 4");
-        admin.addTaxi("Taxi 5");
+        admin.addTaxi(Taxi.create(new String[]{"Taxi 1", "Taxi 2", "Taxi 3", "Taxi 4", "Taxi 5"}));
     }
 
     @Test

@@ -32,36 +32,8 @@ public class Booking {
         this.taxiName = taxiName;
     }
 
-    public String getBookingId() {
-        return bookingId;
-    }
-
-    public String getCustomerId() {
-        return customerId;
-    }
-
-    public String getFrom() {
-        return from;
-    }
-
-    public String getTo() {
-        return to;
-    }
-
-    public String getPickupTime() {
-        return pickupTime;
-    }
-
-    public String getDropTime() {
-        return dropTime;
-    }
-
-    public int getAmount() {
-        return amount;
-    }
-
-    public String getTaxiName() {
-        return taxiName;
+    public boolean checkTaxiName(String otherTaxiName) {
+        return otherTaxiName.equals(taxiName);
     }
 
     @Override

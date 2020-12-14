@@ -2,6 +2,7 @@ package com.gokulnathp;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class Admin {
     private final List<Taxi> taxis;
@@ -12,9 +13,8 @@ public class Admin {
         history = new ArrayList<>();
     }
 
-    public void addTaxi(String taxiName) {
-        Taxi taxi = new Taxi(taxiName);
-        taxis.add(taxi);
+    public void addTaxi(List<Taxi> newTaxis) {
+        taxis.addAll(newTaxis);
     }
 
     private int calculateDistance(String from, String to) {
@@ -85,8 +85,8 @@ public class Admin {
     }
 
     public Booking bookTaxi(String from, String to, String pickupTime) {
-        String bookingId = (history.size() + 1) + "";
-        String customerId = (history.size() + 1) + "";
+        String bookingId = String.valueOf((history.size() + 1));
+        String customerId = String.valueOf((history.size() + 1));
 
         int distance = calculateDistance(from, to);
         String dropTime = calculateDropTime(pickupTime, distance);
@@ -111,12 +111,7 @@ public class Admin {
     }
 
     public List<Booking> historyOf(String taxiName) {
-        List<Booking> historyOfTaxi = new ArrayList<>();
-        history.forEach(booking -> {
-            if (booking.getTaxiName().equals(taxiName)) {
-                historyOfTaxi.add(booking);
-            }
-        });
-        return historyOfTaxi;
+        return history.stream().filter(booking -> booking.checkTaxiName(taxiName))
+                .collect(Collectors.toList());
     }
 }

@@ -1,16 +1,28 @@
 package com.gokulnathp;
 
+import java.util.Arrays;
+import java.util.List;
+import java.util.stream.Collectors;
+
 public class Taxi {
     private final String name;
     private int earned;
     private String location;
     private String dropTime;
 
-    public Taxi(String name) {
+    public Taxi(String name, int earned, String location, String dropTime) {
         this.name = name;
-        this.earned = 0;
-        this.location = "A";
-        this.dropTime = null;
+        this.earned = earned;
+        this.location = location;
+        this.dropTime = dropTime;
+    }
+
+    public static Taxi create(String name) {
+        return new Taxi(name, 0, "A", null);
+    }
+
+    public static List<Taxi> create(String[] names) {
+        return Arrays.stream(names).map(Taxi::create).collect(Collectors.toList());
     }
 
     public String getName() {
