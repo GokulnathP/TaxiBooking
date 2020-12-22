@@ -1,4 +1,6 @@
-package com.gokulnathp;
+package com.gokulnathp.builder;
+
+import com.gokulnathp.model.Booking;
 
 public class BookingBuilder {
     private String bookingId;

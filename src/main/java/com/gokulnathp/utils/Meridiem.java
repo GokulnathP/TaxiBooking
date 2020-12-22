@@ -1,4 +1,4 @@
-package com.gokulnathp;
+package com.gokulnathp.utils;
 
 public enum Meridiem {
     AM,

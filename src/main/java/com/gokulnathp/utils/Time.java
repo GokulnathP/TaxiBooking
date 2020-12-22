@@ -1,4 +1,4 @@
-package com.gokulnathp;
+package com.gokulnathp.utils;
 
 public class Time {
     private final int hour;

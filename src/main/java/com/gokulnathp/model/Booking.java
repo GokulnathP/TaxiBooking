@@ -1,4 +1,4 @@
-package com.gokulnathp;
+package com.gokulnathp.model;
 
 import java.util.Objects;
 

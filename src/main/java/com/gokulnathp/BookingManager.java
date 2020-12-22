@@ -1,14 +1,20 @@
 package com.gokulnathp;
 
+import com.gokulnathp.builder.BookingBuilder;
+import com.gokulnathp.model.Booking;
+import com.gokulnathp.model.Taxi;
+import com.gokulnathp.utils.Meridiem;
+import com.gokulnathp.utils.Time;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
-public class Admin {
+public class BookingManager {
     private final List<Taxi> taxis;
     private final List<Booking> history;
 
-    public Admin() {
+    public BookingManager() {
         taxis = new ArrayList<>();
         history = new ArrayList<>();
     }

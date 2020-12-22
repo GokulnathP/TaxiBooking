@@ -1,4 +1,7 @@
-package com.gokulnathp;
+package com.gokulnathp.model;
+
+import com.gokulnathp.utils.Meridiem;
+import com.gokulnathp.utils.Time;
 
 import java.util.Arrays;
 import java.util.List;
